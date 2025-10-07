@@ -69,3 +69,6 @@ takes real path or actual path traced on silicon
 
 ## Pin Node Convention
 for more accurate analysis it should be used here the pins of the gates are considered
+
+![Timing Path Diagram](images/pin.png)
+![Timing Path Diagram](images/pin2.png)
