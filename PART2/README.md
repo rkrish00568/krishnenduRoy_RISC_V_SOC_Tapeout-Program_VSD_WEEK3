@@ -26,3 +26,9 @@ It is the difference btw arrival and expected time for a signal
  - in2reg
  - reg2out
  - in2out
+ - clock gating
+ - recovery/removal
+![Timing Path Diagram](images/rar.png)
+showing the recovery/removal path
+![Timing Path Diagram](images/gating.png)
+showing the clock gating path
