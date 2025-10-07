@@ -65,3 +65,7 @@ AAT is expected to be less thn RAT at every node to meet design expectations
 takes all worst case paths
 ## PBA = path based analysis
 takes real path or actual path traced on silicon
+
+
+## Pin Node Convention
+for more accurate analysis it should be used here the pins of the gates are considered
