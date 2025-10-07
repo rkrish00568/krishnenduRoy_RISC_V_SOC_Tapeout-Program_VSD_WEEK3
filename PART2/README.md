@@ -52,4 +52,5 @@ showing the latch(time borrow/time given)
 
 # Actual Arrival Time
 time at any node where we see latest transition after first rise clock edge
+### for timing analysis we convert logic gates to nodes
 
