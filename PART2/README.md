@@ -38,3 +38,14 @@ showing the clock gating path
 showing the data to data path
 ![Timing Path Diagram](images/latch.png)
 showing the latch(time borrow/time given)
+
+## Skew/Transition analysis
+
+ - Data(max/min)
+ -  clock(max/min)
+## Load Analysis
+ - Fanout(max/min)
+ - Capacitance(max/min)
+## Clock Analysis
+ - skew
+ - pulse width
