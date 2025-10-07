@@ -49,3 +49,7 @@ showing the latch(time borrow/time given)
 ## Clock Analysis
  - skew
  - pulse width
+
+# Actual Arrival Time
+time at any node where we see latest transition after first rise clock edge
+
