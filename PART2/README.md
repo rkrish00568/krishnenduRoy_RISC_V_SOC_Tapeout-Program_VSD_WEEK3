@@ -9,10 +9,13 @@ The **arrival time (AT)** is the **actual time** at which a signal reaches a par
 ### Required Time 
 Allowed time for signal arrival
 
+## Slack 
+It is the difference btw arrival and expected time for a signal
 
-
-`Slack = Arrival Time − Required Time`
-
-Slack ≥ 0
-
-Data remains **stable after** capture edge ✅
+-   **Max Slack** → Computed for **maximum delay (setup path)** → Slackmin​=Arrival Time−Required Time
+    
+-   **Min Slack** → Computed for **minimum delay (hold path)** → Slackmax​\=Required Time−Arrival Time
+    
+-   **Negative Slack** → Timing violation
+    
+-   **Positive Slack** → Timing met
