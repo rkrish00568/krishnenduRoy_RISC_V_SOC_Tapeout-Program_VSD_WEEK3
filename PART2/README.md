@@ -36,3 +36,5 @@ showing the recovery/removal path
 showing the clock gating path
 ![Timing Path Diagram](images/data2data.png)
 showing the data to data path
+![Timing Path Diagram](images/latch.png)
+showing the latch(time borrow/time given)
