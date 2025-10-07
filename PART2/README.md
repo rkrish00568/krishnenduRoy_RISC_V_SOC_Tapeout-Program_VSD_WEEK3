@@ -19,3 +19,10 @@ It is the difference btw arrival and expected time for a signal
 -   **Negative Slack** → Timing violation
     
 -   **Positive Slack** → Timing met
+
+## types of setup/hold analyis
+
+1)reg2reg
+2)in2reg
+3)reg2out
+4)in2out
