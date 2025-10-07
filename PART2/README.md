@@ -9,25 +9,7 @@ The **arrival time (AT)** is the **actual time** at which a signal reaches a par
 ### Required Time 
 Allowed time for signal arrival
 
-## 🧮 Slack Definitions
 
-Type of Check
-
-Slack Formula
-
-Condition for Passing
-
-Meaning
-
-**Setup (Max Path)**
-
-`Slack = Required Time − Arrival Time`
-
-Slack ≥ 0
-
-Data arrives **before** capture clock edge ✅
-
-**Hold (Min Path)**
 
 `Slack = Arrival Time − Required Time`
 
