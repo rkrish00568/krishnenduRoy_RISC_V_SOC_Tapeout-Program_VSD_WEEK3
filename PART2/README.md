@@ -33,3 +33,5 @@ It is the difference btw arrival and expected time for a signal
 showing the recovery/removal path
 ![Timing Path Diagram](images/gating.png)
 showing the clock gating path
+![Timing Path Diagram](images/data2data.png)
+showing the data to data path
