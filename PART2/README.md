@@ -29,6 +29,7 @@ It is the difference btw arrival and expected time for a signal
  - clock gating
  - recovery/removal
  - data-to-data
+ - latch(time borrow/time given)
 ![Timing Path Diagram](images/rar.png)
 showing the recovery/removal path
 ![Timing Path Diagram](images/gating.png)
