@@ -54,3 +54,14 @@ showing the latch(time borrow/time given)
 time at any node where we see latest transition after first rise clock edge
 ### for timing analysis we convert logic gates to nodes
 
+# Required Arrival Time
+time at any node where we expect latest transition within clock cycle
+
+## Slack = RAT - AAT
+
+AAT is expected to be less thn RAT at every node to meet design expectations
+
+## GBA = graph based analysis   
+takes all worst case paths
+## PBA = path based analysis
+takes real path or actual path traced on silicon
