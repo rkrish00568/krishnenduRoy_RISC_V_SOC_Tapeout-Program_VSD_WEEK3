@@ -128,3 +128,9 @@ when the input to cmos inverter is 0 the circuit can be replaced with resistor a
 ![Timing Path Diagram](images/for.png)
 Here drain current is function of oxide thickness, width and height of the gates. and Resistance is function of drain current. And delay is function of resistance
 ### Here R is not constant but varies with drain current 
+
+
+## Pessimism
+ - Pessimism in Static Timing Analysis (STA) refers to the overestimation of timing delays or variations in a circuit. It occurs when STA assumes worst-case conditions for multiple paths or elements that cannot actually occur simultaneously in real hardware.
+
+ - we have to add or substract the additional pessimism to the arrival or required time 
