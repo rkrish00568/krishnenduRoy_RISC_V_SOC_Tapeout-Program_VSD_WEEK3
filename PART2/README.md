@@ -112,3 +112,16 @@ An eye diagram is a superimposed plot of multiple signal waveforms in a digital 
  - Hold Slack = Arrival Time − Required Time
 ![Timing Path Diagram](images/8.png)
 
+# On chip Variation
+## Etching
+ - It defines the width and height of a structure
+ - the drain current is directly dependent on the width and the height so variation on these impact the drain current which in turn affect the delay.
+![Timing Path Diagram](images/9.png)
+![Timing Path Diagram](images/10.png)
+## Oxide thickness
+-  the drain current is directly dependent on the oxide thickness so variation on these impact the drain current which in turn affect the delay.
+
+## Resistance , Drain Current , Delay
+
+![Timing Path Diagram](images/11.png)
+when the input to cmos inverter is 0 the circuit can be replaced with resistor and capacitor
