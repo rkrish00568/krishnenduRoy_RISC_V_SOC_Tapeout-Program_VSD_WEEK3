@@ -72,3 +72,11 @@ for more accurate analysis it should be used here the pins of the gates are cons
 
 ![Timing Path Diagram](images/pin.png)
 ![Timing Path Diagram](images/pin2.png)
+
+## Setup max path analysis tells us that combinational delay should be less than the time period
+## Transistor level implementation
+
+![Timing Path Diagram](images/neg.png)
+it shows how the flop is made up of mux which is negative latch i.e. when clk is low then the input is latched
+![Timing Path Diagram](images/pos.png)
+it shows how the flop is made up of mux which is positive latch i.e. when clk is high then the input is latched
