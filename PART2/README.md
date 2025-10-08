@@ -125,3 +125,6 @@ An eye diagram is a superimposed plot of multiple signal waveforms in a digital 
 
 ![Timing Path Diagram](images/11.png)
 when the input to cmos inverter is 0 the circuit can be replaced with resistor and capacitor
+![Timing Path Diagram](images/for.png)
+Here drain current is function of oxide thickness, width and height of the gates. and Resistance is function of drain current. And delay is function of resistance
+### Here R is not constant but varies with drain current 
