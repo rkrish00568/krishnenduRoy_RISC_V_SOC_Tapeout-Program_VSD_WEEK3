@@ -88,5 +88,12 @@ it shows how the flop is made up of mux which is positive latch i.e. when clk is
  - Setup Time is the time before rising edge of CLK, that input D become valid i.e. 'D' input has to be stable such that Qm is sent out, to Q reliably
  - Input 'D' takes at least 3 inverter delays (Inv1, Inv3 and Inv5/Inv2) + 1 transmission gate delay (Tr1) to become stable before rising edge of CLK
  - Setup Time = 3 Inverter delay + 1 Transmission gate delay
+ - When CLK is 'high', “Tr2” and “Tr4” turns ON. Hence, input ‘Qm’ (which is 'D' input from previous 'low' CLK) is latched to output 'Q' of negative latch, through 'Tr4' and 'Inv6
+ - Inv2, Inv3 holds the 'Qm' state of master negative latch
+ - Clk-Q = 1 transmission gate delay + 1 inverter delay
+ - Hold Time is the time for which 'D' input remain valid after clock edge. In this case, 'Tr1' is OFF after rising 'CLK'. So, 'D' is allowed to change OR can change, immediately after rise 'CLK' edge. So Hold time is 'zero
+ - Hence finite Time 'S' required (before clk edge) for 'D' to reach Q  i.e. internal delay of Mux1 = Setup time
 
 ![Timing Path Diagram](images/1.png)
+![Timing Path Diagram](images/2.png)
+![Timing Path Diagram](images/3.png)
