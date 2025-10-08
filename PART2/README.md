@@ -80,3 +80,13 @@ for more accurate analysis it should be used here the pins of the gates are cons
 it shows how the flop is made up of mux which is negative latch i.e. when clk is low then the input is latched
 ![Timing Path Diagram](images/pos.png)
 it shows how the flop is made up of mux which is positive latch i.e. when clk is high then the input is latched
+
+# Positive edge  triggered flip flop using master slave configuration
+ - When CLK is 'low', “Tr1” and “Tr3” turns ON. Hence, input ‘D’ is latched to output ‘Qm’ of negative latch.
+ - Inv4, Inv6' holds the 'Q' state of slave positive latch
+ - Also,  D , is ready at output of 'Inv5', to propagate till 'Q', when CLK becomes 'high
+ - Setup Time is the time before rising edge of CLK, that input D become valid i.e. 'D' input has to be stable such that Qm is sent out, to Q reliably
+ - Input 'D' takes at least 3 inverter delays (Inv1, Inv3 and Inv5/Inv2) + 1 transmission gate delay (Tr1) to become stable before rising edge of CLK
+ - Setup Time = 3 Inverter delay + 1 Transmission gate delay
+
+![Timing Path Diagram](images/1.png)
