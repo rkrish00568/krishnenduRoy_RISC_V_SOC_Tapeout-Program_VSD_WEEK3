@@ -97,3 +97,14 @@ it shows how the flop is made up of mux which is positive latch i.e. when clk is
 ![Timing Path Diagram](images/1.png)
 ![Timing Path Diagram](images/2.png)
 ![Timing Path Diagram](images/3.png)
+
+# Jitter
+Jitter is the short-term variation or deviation in the timing of a signal’s transitions from their ideal positions in time.
+## Eye Diagram
+An eye diagram is a superimposed plot of multiple signal waveforms in a digital system over one bit period.
+![Timing Path Diagram](images/4.png)
+![Timing Path Diagram](images/5.png)
+![Timing Path Diagram](images/6.png)
+![Timing Path Diagram](images/7.png)
+
+
