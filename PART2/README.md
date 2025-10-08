@@ -107,4 +107,8 @@ An eye diagram is a superimposed plot of multiple signal waveforms in a digital 
 ![Timing Path Diagram](images/6.png)
 ![Timing Path Diagram](images/7.png)
 
+# Hold Analysis
+ - Hold analysis ensures data remains stable after the capturing clock edge.
+ - Hold Slack = Arrival Time − Required Time
+![Timing Path Diagram](images/8.png)
 
