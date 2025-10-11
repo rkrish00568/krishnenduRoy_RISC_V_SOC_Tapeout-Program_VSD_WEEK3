@@ -117,3 +117,6 @@ for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
 ![My BabySoC Timing Graph](images/11.png)
 ![My BabySoC Timing Graph](images/12.png)
 ![My BabySoC Timing Graph](images/13.png)
+
+
+# Observation
