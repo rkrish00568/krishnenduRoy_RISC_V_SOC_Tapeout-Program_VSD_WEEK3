@@ -38,7 +38,13 @@ puts "✅ Timing analysis complete. Report saved to STA_OUTPUT/timing_report.txt
 ![My BabySoC Timing Graph](images/5.png)
 ![My BabySoC Timing Graph](images/4.png)
 
+# Observation
+The key takeaway is the final result:
 
+-   Slack (MET): 2.26
+    
+
+Since the slack is a positive value (2.26 ns), it means the setup timing requirement has been met (MET). The data arrives 2.26 ns earlier than it is required to at the destination flip-flop, indicating a good timing margin for this path
      
 ### **VSDBabySoC PVT Corner Analysis (Post-Synthesis Timing)**  
 STA is performed across all PVT corners to validate that the design meets timing requirements.
