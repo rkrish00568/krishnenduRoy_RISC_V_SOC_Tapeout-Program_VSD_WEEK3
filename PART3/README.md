@@ -126,3 +126,8 @@ for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
 
 
 # Observation
+
+
+
+
+Key Observation: The worst setup slack is VIOLATED in the SS (Slow-Slow) corner at 040∘C and $\\mathbf{1.65}$V, with a slack of \*\*$-5.561$ ns\*\*. This corner is typically the most challenging for setup time.
