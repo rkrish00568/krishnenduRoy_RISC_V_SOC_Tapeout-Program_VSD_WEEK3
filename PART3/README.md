@@ -35,8 +35,9 @@ puts "✅ Timing analysis complete. Report saved to STA_OUTPUT/timing_report.txt
 
 ```
 ![My BabySoC Timing Graph](images/3.png)
-![My BabySoC Timing Graph](images/4.png)
 ![My BabySoC Timing Graph](images/5.png)
+![My BabySoC Timing Graph](images/4.png)
+
 
      
 ### **VSDBabySoC PVT Corner Analysis (Post-Synthesis Timing)**  
