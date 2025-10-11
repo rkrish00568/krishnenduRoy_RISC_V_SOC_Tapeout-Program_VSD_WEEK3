@@ -56,46 +56,58 @@ The timing libraries can be downloaded from:
 [https://github.com/efabless/skywater-pdk-libs-sky130_fd_sc_hd/tree/master/timing](https://github.com/efabless/skywater-pdk-libs-sky130_fd_sc_hd/tree/master/timing)  
 
 #### the TCL file is 
-     set list_of_lib_files(1) "sky130_fd_sc_hd__tt_025C_1v80.lib"
-     set list_of_lib_files(2) "sky130_fd_sc_hd__ff_100C_1v65.lib"
-     set list_of_lib_files(3) "sky130_fd_sc_hd__ff_100C_1v95.lib"
-     set list_of_lib_files(4) "sky130_fd_sc_hd__ff_n40C_1v56.lib"
-     set list_of_lib_files(5) "sky130_fd_sc_hd__ff_n40C_1v65.lib"
-     set list_of_lib_files(6) "sky130_fd_sc_hd__ff_n40C_1v76.lib"
-     set list_of_lib_files(7) "sky130_fd_sc_hd__ss_100C_1v40.lib"
-     set list_of_lib_files(8) "sky130_fd_sc_hd__ss_100C_1v60.lib"
-     set list_of_lib_files(9) "sky130_fd_sc_hd__ss_n40C_1v28.lib"
-     set list_of_lib_files(10) "sky130_fd_sc_hd__ss_n40C_1v35.lib"
-     set list_of_lib_files(11) "sky130_fd_sc_hd__ss_n40C_1v40.lib"
-     set list_of_lib_files(12) "sky130_fd_sc_hd__ss_n40C_1v44.lib"
-     set list_of_lib_files(13) "sky130_fd_sc_hd__ss_n40C_1v76.lib"
+```
+# Define list of Liberty files for PVT corners
+set list_of_lib_files(1) "sky130_fd_sc_hd__tt_025C_1v80.lib"
+set list_of_lib_files(2) "sky130_fd_sc_hd__ff_100C_1v65.lib"
+set list_of_lib_files(3) "sky130_fd_sc_hd__ff_100C_1v95.lib"
+set list_of_lib_files(4) "sky130_fd_sc_hd__ff_n40C_1v56.lib"
+set list_of_lib_files(5) "sky130_fd_sc_hd__ff_n40C_1v65.lib"
+set list_of_lib_files(6) "sky130_fd_sc_hd__ff_n40C_1v76.lib"
+set list_of_lib_files(7) "sky130_fd_sc_hd__ss_100C_1v40.lib"
+set list_of_lib_files(8) "sky130_fd_sc_hd__ss_100C_1v60.lib"
+set list_of_lib_files(9) "sky130_fd_sc_hd__ss_n40C_1v28.lib"
+set list_of_lib_files(10) "sky130_fd_sc_hd__ss_n40C_1v35.lib"
+set list_of_lib_files(11) "sky130_fd_sc_hd__ss_n40C_1v40.lib"
+set list_of_lib_files(12) "sky130_fd_sc_hd__ss_n40C_1v44.lib"
+set list_of_lib_files(13) "sky130_fd_sc_hd__ss_n40C_1v76.lib"
 
-     read_liberty /OpenSTA/examples/timing_libs/avsdpll.lib
-     read_liberty /OpenSTA/examples/timing_libs/avsddac.lib
+# Additional library files
+read_liberty ~/vsd/week2/VSDBabySoC/src/lib/avsdpll.lib
+read_liberty ~/vsd/week2/VSDBabySoC/src/lib/avsddac.lib
 
-     for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
-     read_liberty /OpenSTA/examples/timing_libs/$list_of_lib_files($i)
-     read_verilog /OpenSTA/examples/BabySOC/vsdbabysoc.synth.v
-     link_design vsdbabysoc
-     current_design
-     read_sdc /OpenSTA/examples/BabySOC/vsdbabysoc_synthesis.sdc
-     check_setup -verbose
-     report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -digits {4} > 
-     /OpenSTA/examples/BabySOC/STA_OUPUT/min_max_$list_of_lib_files($i).txt
+# Create output folder (if not exists)
+exec mkdir -p ~/vsd/week2/VSDBabySoC/STA_OUTPUT
 
-     exec echo "$list_of_lib_files($i)" >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_worst_max_slack.txt
-     report_worst_slack -max -digits {4} >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_worst_max_slack.txt
+# Iterate over all Liberty files
+for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
+    puts "\n=== Running STA for $list_of_lib_files($i) ==="
 
-     exec echo "$list_of_lib_files($i)" >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_worst_min_slack.txt
-     report_worst_slack -min -digits {4} >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_worst_min_slack.txt
+    read_liberty ~/skywater-pdk-libs-sky130_fd_sc_hd/timing/$list_of_lib_files($i)
+    read_verilog ~/vsd/week2/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
+    link_design vsdbabysoc
+    current_design
+    read_sdc ~/vsd/week2/VSDBabySoC/src/sdc/vsdbabysoc_synthesis.sdc
 
-     exec echo "$list_of_lib_files($i)" >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_tns.txt
-     report_tns -digits {4} >> /OpenSTA/examples/BabySoO/STA_OUPUT/sta_tns.txt
+    check_setup -verbose
 
-     exec echo "$list_of_lib_files($i)" >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_wns.txt
-     report_wns -digits {4} >> /OpenSTA/examples/BabySOC/STA_OUPUT/sta_wns.txt
-     }
-     
+    # Generate timing reports
+    report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -digits 4 >  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/min_max_$list_of_lib_files($i).txt
+
+    exec echo "$list_of_lib_files($i)" >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_worst_max_slack.txt
+    report_worst_slack -max -digits 4 >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_worst_max_slack.txt
+
+    exec echo "$list_of_lib_files($i)" >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_worst_min_slack.txt
+    report_worst_slack -min -digits 4 >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_worst_min_slack.txt
+
+    exec echo "$list_of_lib_files($i)" >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_tns.txt
+    report_tns -digits 4 >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_tns.txt
+
+    exec echo "$list_of_lib_files($i)" >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_wns.txt
+    report_wns -digits 4 >>  ~/vsd/week2/VSDBabySoC/STA_OUTPUT/sta_wns.txt
+}
+
+```
 
 
 
