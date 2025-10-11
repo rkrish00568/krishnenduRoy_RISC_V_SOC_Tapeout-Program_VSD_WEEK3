@@ -109,8 +109,11 @@ for {set i 1} {$i <= [array size list_of_lib_files]} {incr i} {
 
 ```
 
-
-
-![Screenshot 2024-12-08 065913](https://github.com/user-attachments/assets/fc904026-5a3c-4bca-8e41-1624474f4852)
-
-![Screenshot 2024-12-08 070712](https://github.com/user-attachments/assets/6daea128-878b-4286-96ab-08ea7bdd3b83)
+![My BabySoC Timing Graph](images/6.png)
+![My BabySoC Timing Graph](images/7.png)
+![My BabySoC Timing Graph](images/8.png)
+![My BabySoC Timing Graph](images/9.png)
+![My BabySoC Timing Graph](images/10.png)
+![My BabySoC Timing Graph](images/11.png)
+![My BabySoC Timing Graph](images/12.png)
+![My BabySoC Timing Graph](images/13.png)
