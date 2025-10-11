@@ -34,8 +34,6 @@ report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -dig
 puts "✅ Timing analysis complete. Report saved to STA_OUTPUT/timing_report.txt"
 
 ```
-![My BabySoC Timing Graph](images/1.png)
-![My BabySoC Timing Graph](images/2.png)
 ![My BabySoC Timing Graph](images/3.png)
 ![My BabySoC Timing Graph](images/4.png)
 ![My BabySoC Timing Graph](images/5.png)
