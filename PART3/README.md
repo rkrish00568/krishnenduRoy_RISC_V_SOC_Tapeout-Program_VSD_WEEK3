@@ -1,20 +1,40 @@
 # Generate Timing Graphs Using OPENSTA
 
 #### VSDBabySoC basic timing analysis
-     read_liberty -min /OpenSTA/examples/timing_libs/sky130_fd_sc_hd__tt_025C_1v80.lib
-     read_liberty -max /OpenSTA/examples/timing_libs/sky130_fd_sc_hd__tt_025C_1v80.lib
-     read_liberty -min /OpenSTA/examples/timing_libs/avsdpll.lib
-     read_liberty -max /OpenSTA/examples/timing_libs/avsdpll.lib
-     read_liberty -min /OpenSTA/examples/timing_libs/avsddac.lib
-     read_liberty -max /OpenSTA/examples/timing_libs/avsddac.lib
-     read_verilog /OpenSTA/examples/BabySOC/vsdbabysoc.synth.v
-     link_design vsdbabysoc
-     read_sdc /OpenSTA/examples/BabySOC/vsdbabysoc_synthesis.sdc
-     report_checks
+```
+# -----------------------------
+# OpenSTA Timing Analysis Script
+# -----------------------------
 
-     
-![WhatsApp Image 2024-12-07 at 9 14 08 AM (4)](https://github.com/user-attachments/assets/d67e5fd1-99a8-47b5-a8f4-cf6063e07bd5)
-![WhatsApp Image 2024-12-07 at 9 14 07 AM](https://github.com/user-attachments/assets/c8652c4e-392d-4881-a97e-288e81c679b2)
+# Load standard cell libraries
+read_liberty -min /home/krish/vsd/week2/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -max /home/krish/vsd/week2/VSDBabySoC/src/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Load additional IP libraries
+read_liberty -min /home/krish/vsd/week2/VSDBabySoC/src/lib/avsdpll.lib
+read_liberty -max /home/krish/vsd/week2/VSDBabySoC/src/lib/avsdpll.lib
+read_liberty -min /home/krish/vsd/week2/VSDBabySoC/src/lib/avsddac.lib
+read_liberty -max /home/krish/vsd/week2/VSDBabySoC/src/lib/avsddac.lib
+
+# Load the synthesized netlist
+read_verilog /home/krish/vsd/week2/VSDBabySoC/output/post_synth_sim/vsdbabysoc.synth.v
+
+# Link the design
+link_design vsdbabysoc
+
+# Read the timing constraints
+read_sdc /home/krish/vsd/week2/VSDBabySoC/src/sdc/vsdbabysoc_synthesis.sdc
+
+# Make sure output folder exists
+exec mkdir -p /home/krish/vsd/week2/VSDBabySoC/STA_OUTPUT
+
+# Generate timing report
+report_checks -path_delay min_max -fields {nets cap slew input_pins fanout} -digits 4 > /home/krish/vsd/week2/VSDBabySoC/STA_OUTPUT/timing_report.txt
+
+puts "✅ Timing analysis complete. Report saved to STA_OUTPUT/timing_report.txt"
+
+```
+
 
      
 ### **VSDBabySoC PVT Corner Analysis (Post-Synthesis Timing)**  
